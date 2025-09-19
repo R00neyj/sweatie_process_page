@@ -40,8 +40,19 @@ body {
   font-family: "Pretendard", "Urbanist", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  word-break: keep-all;
 }
 
+/* 텍스트박스 여백 제거 */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  margin: 0;
+}
 /* 리스트 스타일 제거 */
 ol,
 ul {
