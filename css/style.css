@@ -1,0 +1,22 @@
+/* section-grid-systems =============================================================================== */
+
+/* sec-2 ============================================================================================== */
+.sec-2 > h2 {
+  font-size: 8rem;
+  font-weight: bold;
+}
+
+.sec-2 > .content-lane > .img-box-sec-2 {
+  width: 92.5rem;
+  height: 70rem;
+  box-sizing: border-box;
+  overflow: hidden;
+  vertical-align: middle;
+  border-radius: 1.2rem;
+}
+
+.sec-2 > .content-lane > .img-box-sec-2 > img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
