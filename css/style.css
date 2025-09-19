@@ -6,6 +6,9 @@
   font-weight: bold;
 }
 
+.sec-2 > .content-lane {
+}
+
 .sec-2 > .content-lane > .img-box-sec-2 {
   width: 92.5rem;
   height: 70rem;
