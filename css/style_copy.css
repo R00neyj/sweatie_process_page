@@ -33,10 +33,19 @@ body {
   color: var(--white);
 }
 
+/* section */
+.section > .content-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 /* ----------------------------- section1 ----------------------------- */
 section.sec-1 {
   height: 100dvh;
   position: relative;
+  width: 100%;
+  overflow-x: hidden;
 }
 .sec-1 > .title {
   position: absolute;
@@ -76,15 +85,11 @@ section.sec-1 {
 }
 
 /* section 3 */
-.sec-3 > .content-wrap {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-/* sec-3 box */
+
+/* sec-3 box common*/
 .sec-3 > .content-wrap > .box {
   width: 100%;
-  height: 70rem;
+  height: 90rem;
 
   /* font weight */
   .weight-regular {
@@ -100,17 +105,16 @@ section.sec-1 {
     font-weight: 700;
   }
   .size-large {
-    font-size: 42px;
+    font-size: 4.2rem;
   }
   .size-medium {
-    font-size: 18px;
+    font-size: 1.8rem;
   }
   .size-small {
-    font-size: 14px;
+    font-size: 1.4rem;
   }
 }
 
-/* box common */
 /* left */
 .sec-3 > .content-wrap > .box {
   display: flex;
@@ -141,7 +145,7 @@ section.sec-1 {
   width: 49rem;
   font-size: 1.8rem;
   padding-top: 3.6rem;
-  border-top: var(--white) solid 1px;
+  border-top: var(--white) solid 0.1rem;
 }
 .sec-3 > .content-wrap > .box > .left > .bottom {
   display: flex;
@@ -176,4 +180,70 @@ section.sec-1 {
 }
 .sec-3 > .content-wrap > .box-2 > .right {
   line-height: 0.85;
+}
+
+/* box-3 */
+.sec-3 > .content-wrap > .box-3 {
+  font-family: "Pretendard", sans-serif;
+}
+.sec-3 > .content-wrap > .box-3 > .left > .top > .description {
+  font-family: "Urbanist", sans-serif;
+}
+.sec-3 > .content-wrap > .box-3 > .left > .top > .font-weight {
+  width: 67rem;
+}
+
+/* section 3 end*/
+
+/* section 5 */
+.sec-5 {
+  background-color: var(--white);
+  color: var(--black);
+}
+
+.sec-5 > .content-wrap {
+  > .box {
+    display: flex;
+    gap: 2.4rem;
+    width: 100%;
+
+    .svg-container {
+      display: flex;
+      align-items: center;
+      flex-grow: 1;
+
+      > .svg-box {
+        flex-grow: 1;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+    }
+    .title {
+      font-size: 42px;
+      font-weight: 700;
+      border-bottom: var(--black) solid 0.1rem;
+    }
+
+    > .left {
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+    }
+    > .right {
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+    }
+  }
+}
+
+.sec-5 > .content-wrap > .box-1 {
+  height: 78rem;
+}
+.sec-5 > .content-wrap > .box-2 {
+  height: 84rem;
+}
+.sec-5 > .content-wrap > .box-2 > .left > .svg-container {
+  flex-direction: column;
 }
