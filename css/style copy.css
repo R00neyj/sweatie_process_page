@@ -86,6 +86,10 @@ section.sec-1 {
   width: 100%;
   height: 70rem;
 
+  /* font weight */
+  .weight-regular {
+    font-weight: 400;
+  }
   .weight-medium {
     font-weight: 500;
   }
@@ -106,14 +110,15 @@ section.sec-1 {
   }
 }
 
-/* box-1 */
+/* box common */
 /* left */
 .sec-3 > .content-wrap > .box {
   display: flex;
   justify-content: space-between;
+  margin-bottom: 9.6rem;
 }
 .sec-3 > .content-wrap > .box > .left {
-  width: 50%;
+  width: 100%;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -128,23 +133,26 @@ section.sec-1 {
 .sec-3 > .content-wrap > .box > .left > .top > .font-name {
   font-weight: 700;
   font-size: 12.8rem;
-  line-height: 1;
+  line-height: 1.2;
 }
 .sec-3 > .content-wrap > .box > .left > .top > .font-weight {
   display: flex;
   justify-content: space-between;
   width: 49rem;
   font-size: 1.8rem;
+  padding-top: 3.6rem;
+  border-top: var(--white) solid 1px;
 }
 .sec-3 > .content-wrap > .box > .left > .bottom {
   display: flex;
-}
-.sec-3 > .content-wrap > .box > .left > .bottom > .left {
-  width: 600px;
-}
-.sec-3 > .content-wrap > .box > .left > .bottom > .right {
+  justify-content: space-between;
   text-wrap: nowrap;
-  width: calc(100vw / 3);
+}
+.sec-3 > .content-wrap > .box > .left > .bottom > .left > .font-size,
+.sec-3 > .content-wrap > .box > .left > .bottom > .right {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
 }
 
 /* right */
@@ -154,4 +162,18 @@ section.sec-1 {
   justify-content: end;
   font-size: 60rem;
   line-height: 0.7;
+}
+
+/* box-2 */
+.sec-3 > .content-wrap > .box-2 {
+  font-family: "DM Serif", serif;
+}
+.sec-3 > .content-wrap > .box-2 > .left > .top > .description {
+  font-family: "Urbanist", sans-serif;
+}
+.sec-3 > .content-wrap > .box-2 > .left > .top > .font-weight {
+  width: 57rem;
+}
+.sec-3 > .content-wrap > .box-2 > .right {
+  line-height: 0.85;
 }
