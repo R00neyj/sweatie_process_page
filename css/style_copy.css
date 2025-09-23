@@ -311,6 +311,7 @@ section.sec-1 {
       background-color: var(--primary);
       color: var(--black);
       flex-grow: 2;
+      transform-origin: bottom;
    }
    .secondary {
       background-color: var(--secondary);
