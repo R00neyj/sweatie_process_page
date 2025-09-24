@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="style.CSS" />
+    <script src="script.JS" defer></script>
+  </head>
+  <body>
+    <header class="con-min-width border-green header">
+      <div class="con border-blue flex">
+        <div class="border-red flex ai-c">
+          <a href="#">
+            <img src="../imgs/logo_black.svg" alt="logo" />
+          </a>
+        </div>
+        <div class="border-black flex-grow-1"></div>
+        <nav class="menu-box border-red">
+          <ul class="flex ai-c">
+            <li><a href="#">은행소개</a></li>
+            <li><a href="#">IR투자정보</a></li>
+            <li><a href="#">상품안내</a></li>
+            <li><a href="#">고객센터</a></li>
+          </ul>
+        </nav>
+        <div class="border-red flex ai-c">
+          <a href="#">관련사이트</a>
+        </div>
+      </div>
+    </header>
+    <style>
+      /* Normalization ---------------------------------------------- */
+      html {
+        font-size: 10px;
+      }
+
+      body {
+        font-size: 1.6rem;
+      }
+
+      body,
+      ul,
+      li,
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      h6 {
+        margin: 0;
+        padding: 0;
+        list-style-type: none;
+      }
+
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+      /* Library ----------------------------------------------------*/
+      .border-red {
+        border: 3px solid red;
+      }
+
+      .border-blue {
+        border: 3px solid blue;
+      }
+
+      .border-black {
+        border: 3px solid black;
+      }
+
+      .border-green {
+        border: 3px solid green;
+      }
+
+      .flex {
+        display: flex;
+      }
+
+      .jc-c {
+        justify-content: center;
+      }
+
+      .ai-c {
+        align-items: center;
+      }
+
+      .flex-grow-1 {
+        flex-grow: 1;
+      }
+
+      .block {
+        display: block;
+      }
+
+      .width-100 {
+        width: 100%;
+      }
+
+      .height-100 {
+        height: 100%;
+      }
+
+      .con {
+        margin-inline: auto;
+      }
+
+      .img-box > img {
+        width: 100%;
+        display: block;
+      }
+      /* Customize ---------------------------------------------------------- */
+      .con-min-width {
+        min-width: 108rem;
+      }
+
+      .con {
+        width: 108rem;
+      }
+    </style>
+  </body>
+</html>

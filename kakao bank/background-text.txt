@@ -1,0 +1,2 @@
+[글꼴 : 프리텐다드]
+font-family: "Pretendard";
