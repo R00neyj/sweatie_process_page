@@ -362,3 +362,61 @@ section.sec-1 {
 .sec-6 > .content-wrap > .box-1 {
   height: 60rem;
 }
+
+.sec-6 > .content-wrap > .box-4 {
+  > div {
+    flex-direction: column;
+  }
+
+  > .left {
+    flex-grow: 2;
+    width: auto;
+  }
+
+  > .middle {
+    display: flex;
+    flex-grow: 1;
+  }
+
+  > .right {
+    flex-grow: 1;
+    width: auto;
+  }
+}
+
+.sec-6 > .content-wrap > .box-4 {
+  height: 90rem;
+
+  .img-box {
+    background-color: var(--black);
+    border-radius: 2.4rem;
+    flex-grow: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    > img {
+      object-fit: cover;
+    }
+  }
+
+  .img-box-1 {
+    > img {
+      transform: scale(1.5);
+    }
+  }
+  .img-box-2 {
+    > img {
+      transform: scale(0.8);
+    }
+  }
+
+  .img-box-3,
+  .img-box-4 {
+    height: 100%;
+
+    > img {
+      transform: scale(0.9);
+    }
+  }
+}
