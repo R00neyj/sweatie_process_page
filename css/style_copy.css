@@ -115,7 +115,7 @@ section.sec-1 {
    }
 }
 
-/* section 3 */
+/* ----------------------------- section 3 ----------------------------- */
 
 /* sec-3 box common*/
 .sec-3 > .content-wrap > .box {
@@ -227,9 +227,9 @@ section.sec-1 {
    width: 67rem;
 }
 
-/* section 3 end*/
+/* ----------------------------- section 3 end -----------------------------*/
 
-/* section 5 */
+/* ----------------------------- section 5 ----------------------------- */
 .sec-5 {
    background-color: var(--white);
    color: var(--black);
@@ -286,8 +286,8 @@ section.sec-1 {
 .sec-5 > .content-wrap > .box-2 > .left > .svg-container {
    flex-direction: column;
 }
-
-/* section 6 */
+/* ----------------------------- section 5 end ----------------------------- */
+/* ----------------------------- section 6 ----------------------------- */
 /* sec-6 common setting */
 .sec-6 > .content-wrap > .box {
    display: flex;
@@ -545,8 +545,6 @@ section.sec-1 {
 
    .img-box-1 {
       flex: 1 1 0;
-      > img {
-      }
    }
    .img-box-2 {
       display: flex;
@@ -562,3 +560,4 @@ section.sec-1 {
       }
    }
 }
+/* ----------------------------- section 6 end ----------------------------- */
