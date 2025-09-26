@@ -1,4 +1,5 @@
-gsap.registerPlugin(DrawSVGPlugin);
+gsap.registerPlugin(ScrollTrigger, ScrollSmoother, DrawSVGPlugin);
+
 AOS.init();
 
 // text split
@@ -54,20 +55,22 @@ function animationObserver__init() {
 }
 animationObserver__init();
 
-function svgAnimationObserver__init() {
-   const target = document.querySelectorAll(`.sec-4 .img-container`);
-   console.log(target);
+function svgAnimation__init() {
+   const target = document.querySelector(`.sec-4 .img-container`);
+
+   // 애니메이션 시작 전 라인 제거 css
+   target.classList.add("animate-init");
 
    const lineAniObserver = new IntersectionObserver(
       function (entries) {
          entries.forEach((entry) => {
             let isIntersecting = entry.isIntersecting;
             if (isIntersecting) {
-               gsap.from("#vertical_logo #lines > path", { duration: 2, drawSVG: 0 });
-               gsap.from("#horizontal_logo #line > path", { duration: 2, drawSVG: 0 });
-               target.forEach((el) => {
-                  lineAniObserver.unobserve(el);
-               });
+               setTimeout(() => {
+                  target.classList.remove("animate-init");
+                  gaspDrawPath();
+               }, 1000);
+               lineAniObserver.unobserve(target);
             }
          });
       },
@@ -77,8 +80,28 @@ function svgAnimationObserver__init() {
       }
    );
 
-   target.forEach((el) => {
-      lineAniObserver.observe(el);
+   function gaspDrawPath() {
+      gsap.from("#vertical_logo #lines > path", { duration: 2, drawSVG: 0 });
+      gsap.from("#horizontal_logo #line > path", { duration: 2, drawSVG: 0 });
+   }
+
+   lineAniObserver.observe(target);
+
+   const imgBox = target.querySelectorAll(".img-box");
+
+   imgBox.forEach((el, index) => {
+      el.addEventListener("click", function () {
+         if (index === 0) {
+            gsap.from("#horizontal_logo #line > path", { duration: 2, drawSVG: 0 });
+         } else {
+            gsap.from("#vertical_logo #lines > path", { duration: 2, drawSVG: 0 });
+         }
+      });
    });
 }
-svgAnimationObserver__init();
+svgAnimation__init();
+
+ScrollSmoother.create({
+   smooth: 1,
+   effects: true,
+});

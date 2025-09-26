@@ -11,8 +11,12 @@
 html {
    font-size: max(8px, 0.5208vw);
 }
+::selection {
+   background-color: var(--primary);
+   color: var(--black);
+}
 
-/* ----------------------------- color ----------------------------- */
+/* ----------------------------- Variable ----------------------------- */
 :root {
    --primary: #cafa00;
    --secondary: #006cfa;
@@ -65,7 +69,7 @@ section.sec-1 {
       transform: translatex(0%);
    }
    100% {
-      transform: translatex(-50%);
+      transform: translatex(calc(-50% - 3rem));
    }
 }
 @keyframes opacityAni {
@@ -99,14 +103,21 @@ section.sec-1 {
    transform: rotate(-6deg) translate(-4rem, 4rem);
    transform-origin: 50vw;
    width: 105vw;
-   background-color: black;
+   background-color: var(--primary);
+   color: white;
    animation: opacityAni 1s 1 1s both reverse;
    background: linear-gradient(-90deg, var(--primary), var(--secondary));
 
-   > h2 {
-      font-size: 7.2rem;
-      color: var(--white);
-      animation: marquee 20s linear infinite forwards;
+   .marquee {
+      display: flex;
+      gap: 6rem;
+      animation: marquee 15s linear infinite;
+
+      h2 {
+         font-size: 7.2rem;
+         font-weight: 600;
+         user-select: none;
+      }
    }
 }
 
@@ -163,7 +174,6 @@ section.sec-1 {
    }
 }
 .sec-1 > .bg-video {
-   position: absolute;
    z-index: 0;
    overflow: hidden;
    height: 100dvh;
@@ -391,11 +401,24 @@ section.sec-1 {
    gap: 1.2rem;
 }
 
+/* sec-4 svg line animation */
+.sec-4 > .content-container > .content-wrap > .img-container.animate-init {
+   > .img-box svg {
+      .st1 {
+         stroke-width: 0;
+      }
+      .st2 {
+         stroke-width: 0;
+      }
+   }
+}
+
 .sec-4 > .content-container > .content-wrap > .img-container > .img-box {
    display: flex;
    justify-content: center;
    align-items: center;
    border-radius: 2.4rem;
+   cursor: pointer;
 }
 
 .sec-4 > .content-container > .content-wrap > .img-container > .img-box-1 {
@@ -403,7 +426,6 @@ section.sec-1 {
    width: 93rem;
    height: 77rem;
 
-   /* sec-4 svg line animation */
    svg {
       width: 70rem;
 
