@@ -9,1313 +9,1311 @@
 
 /* font-size adjustment */
 html {
-  font-size: max(8px, 0.5208vw);
+   font-size: max(8px, 0.5208vw);
 }
 
 /* ----------------------------- color ----------------------------- */
 :root {
-  --primary: #cafa00;
-  --secondary: #006cfa;
-  --bgColor: #2c2c2c;
-  --white: #f5f5f5;
-  --black: #222;
+   --primary: #cafa00;
+   --secondary: #006cfa;
+   --bgColor: #2c2c2c;
+   --white: #f5f5f5;
+   --black: #222;
 }
 
 /* ----------------------------- grid ----------------------------- */
 .section {
-  display: flex;
-  justify-content: center;
+   display: flex;
+   justify-content: center;
 
-  > .content-wrap {
-    width: 184rem;
+   > .content-wrap {
+      width: 184rem;
 
-    > .section-header {
-      width: 164rem;
-      padding: 4.8rem 2rem;
+      > .section-header {
+         width: 164rem;
+         padding: 4.8rem 2rem;
 
-      > h2 {
-        font-weight: 700;
-        font-size: 8rem;
+         > h2 {
+            font-weight: 700;
+            font-size: 8rem;
+         }
       }
-    }
-  }
+   }
 }
 
 /* body */
 body {
-  background-color: var(--bgColor);
-  color: var(--white);
+   background-color: var(--bgColor);
+   color: var(--white);
 }
 
 /* section */
 .section > .content-wrap {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+   display: flex;
+   flex-direction: column;
+   align-items: center;
 }
 /* ----------------------------- section1 ----------------------------- */
 section.sec-1 {
-  height: 110dvh;
-  position: relative;
-  width: 100%;
-  overflow: hidden;
+   height: 110dvh;
+   position: relative;
+   width: 100%;
+   overflow: hidden;
 }
 @keyframes marquee {
-  0% {
-    transform: translatex(0%);
-  }
-  100% {
-    transform: translatex(-50%);
-  }
+   0% {
+      transform: translatex(0%);
+   }
+   100% {
+      transform: translatex(-50%);
+   }
 }
-@keyframes marquee-popin {
-  0% {
-    opacity: 1;
-    filter: blur(1rem);
-  }
-  100% {
-    opacity: 0;
-  }
+@keyframes opacityAni {
+   0% {
+      opacity: 1;
+   }
+   100% {
+      opacity: 0;
+   }
 }
 
-.sec-1 > .title::after {
-  content: "hi";
-  display: block;
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(-90deg, var(--primary), var(--secondary));
-  animation: marquee-popin 1s 1 0.5s both;
-}
+/* .sec-1 > .title::after {
+   content: "";
+   display: block;
+   position: absolute;
+   top: 0;
+   left: 0;
+   width: 100%;
+   height: 100%;
+   background-color: black;
+   animation: opacityAni 1s 1 1.5s both;
+} */
 
 .sec-1 > .title {
-  display: flex;
-  position: absolute;
-  z-index: 2;
-  bottom: 26%;
-  left: 0;
-  text-wrap: nowrap;
-  transform: rotate(-6deg) translate(-4rem, 4rem);
-  transform-origin: 50vw;
-  width: 105vw;
-  background: linear-gradient(-90deg, var(--primary), var(--secondary));
+   display: flex;
+   position: absolute;
+   z-index: 2;
+   bottom: 26%;
+   left: 0;
+   text-wrap: nowrap;
+   transform: rotate(-6deg) translate(-4rem, 4rem);
+   transform-origin: 50vw;
+   width: 105vw;
+   background-color: black;
+   animation: opacityAni 1s 1 1s both reverse;
+   background: linear-gradient(-90deg, var(--primary), var(--secondary));
 
-  > h2 {
-    font-size: 8rem;
-    color: #fff;
-    animation: marquee 20s linear infinite forwards;
-  }
+   > h2 {
+      font-size: 7.2rem;
+      color: var(--white);
+      animation: marquee 20s linear infinite forwards;
+   }
 }
 
 @keyframes logo-animation {
-  0% {
-    transform: translateY(-100%);
-    opacity: 0;
-    filter: blur(1rem) drop-shadow(0px 0px 4px rgba(255, 255, 255, 0.5));
-  }
-  100% {
-    transform: translateY(0%);
-    opacity: 1;
-    filter: blur(0) drop-shadow(0px 0px 4px rgba(255, 255, 255, 0.5));
-  }
+   0% {
+      transform: translateY(-100%);
+      opacity: 0;
+      filter: blur(1rem) drop-shadow(0px 0px 4px rgba(255, 255, 255, 0.5));
+   }
+   100% {
+      transform: translateY(0%);
+      opacity: 1;
+      filter: blur(0) drop-shadow(0px 0px 4px rgba(255, 255, 255, 0.5));
+   }
 }
 .sec-1 > .logo {
-  position: absolute;
-  z-index: 3;
-  top: 50vh;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  user-select: none;
-  > svg {
-    overflow: visible;
+   position: absolute;
+   z-index: 3;
+   top: 50vh;
+   left: 50%;
+   transform: translate(-50%, -50%);
+   user-select: none;
+   > svg {
+      overflow: visible;
 
-    > path {
-      color: var(--white);
-      filter: drop-shadow(0px 0px 4px rgba(255, 255, 255, 0.5));
-      animation: logo-animation 1s 1 both;
-    }
+      > path {
+         color: var(--white);
+         filter: drop-shadow(0px 0px 4px rgba(255, 255, 255, 0.5));
+         animation: logo-animation 1s 1 both;
+      }
 
-    > path:nth-child(8),
-    path:nth-child(7) {
-      animation-delay: 0.1s;
-    }
-    > path:nth-child(1) {
-      animation-delay: 0.2s;
-    }
-    > path:nth-child(2) {
-      animation-delay: 0.3s;
-    }
-    > path:nth-child(3) {
-      animation-delay: 0.4s;
-    }
-    > path:nth-child(4) {
-      animation-delay: 0.5s;
-    }
-    > path:nth-child(5) {
-      animation-delay: 0.6s;
-    }
-    > path:nth-child(6) {
-      animation-delay: 0.7s;
-    }
-  }
+      > path:nth-child(8),
+      path:nth-child(7) {
+         animation-delay: 0.1s;
+      }
+      > path:nth-child(1) {
+         animation-delay: 0.2s;
+      }
+      > path:nth-child(2) {
+         animation-delay: 0.3s;
+      }
+      > path:nth-child(3) {
+         animation-delay: 0.4s;
+      }
+      > path:nth-child(4) {
+         animation-delay: 0.5s;
+      }
+      > path:nth-child(5) {
+         animation-delay: 0.6s;
+      }
+      > path:nth-child(6) {
+         animation-delay: 0.7s;
+      }
+   }
 }
 .sec-1 > .bg-video {
-  position: absolute;
-  z-index: 0;
-  overflow: hidden;
-  height: 100dvh;
+   position: absolute;
+   z-index: 0;
+   overflow: hidden;
+   height: 100dvh;
 
-  > .filter {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: linear-gradient(rgba(0, 0, 0, 0.25), var(--bgColor));
-    backdrop-filter: blur(4px);
-  }
-  > video {
-    width: 100vw;
-  }
+   > .filter {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: linear-gradient(rgba(0, 0, 0, 0.25), var(--bgColor));
+      backdrop-filter: blur(4px);
+   }
+   > video {
+      width: 100vw;
+   }
 }
 /* ----------------------------- section1 end ----------------------------- */
 /* sec-2 ============================================================================================== */
 .section {
-  background-color: #2c2c2c;
-  color: white;
+   background-color: #2c2c2c;
+   color: white;
 }
 
 .sec-2 {
-  display: flex;
-  justify-content: center;
+   display: flex;
+   justify-content: center;
 }
 
 .sec-2 > .content-container {
-  width: 187.2rem;
+   width: 187.2rem;
 }
 
 .sec-2 > .content-container > h2 {
-  font-size: 8rem;
-  font-weight: bold;
-  padding: 4.8rem 2rem;
-  display: flex;
-  justify-content: center;
+   font-size: 8rem;
+   font-weight: bold;
+   padding: 4.8rem 2rem;
+   display: flex;
+   justify-content: center;
 }
 
 .sec-2 > .content-container > h2 > p {
-  width: 164rem;
+   width: 164rem;
 }
 
 .sec-2 > .content-container > .content-wrap {
-  display: flex;
-  align-items: flex-end;
-  gap: 2.4rem;
-  padding-bottom: 4.8rem;
+   display: flex;
+   align-items: flex-end;
+   gap: 2.4rem;
+   padding-bottom: 4.8rem;
 }
 
 .sec-2 > .content-container > .content-wrap > .img-box {
-  width: 92.5rem;
-  height: 70rem;
-  box-sizing: border-box;
-  overflow: hidden;
-  vertical-align: middle;
-  border-radius: 1.2rem;
+   width: 92.5rem;
+   height: 70rem;
+   box-sizing: border-box;
+   overflow: hidden;
+   vertical-align: middle;
+   border-radius: 1.2rem;
 }
 
 .sec-2 > .content-container > .content-wrap > .img-box > img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
+   width: 100%;
+   height: 100%;
+   object-fit: cover;
 }
 
 .sec-2 > .content-container > .content-wrap > .text-box {
-  display: flex;
-  flex-direction: column;
-  gap: 2.4rem;
-  font-size: 2.4rem;
-  font-weight: 500;
-  text-wrap: nowrap;
-  line-height: 1.6;
+   display: flex;
+   flex-direction: column;
+   gap: 2.4rem;
+   font-size: 2.4rem;
+   font-weight: 500;
+   text-wrap: nowrap;
+   line-height: 1.6;
 
-  > .text-kr {
-    font-weight: 400;
-  }
+   > .text-kr {
+      font-weight: 400;
+   }
 }
 /* ----------------------------- section 3 ----------------------------- */
 
 /* sec-3 box common*/
 .sec-3 > .content-wrap > .box {
-  width: 100%;
-  height: 80rem;
+   width: 100%;
+   height: 80rem;
 
-  /* font weight */
-  .weight-regular {
-    font-weight: 400;
-  }
-  .weight-medium {
-    font-weight: 500;
-  }
-  .weight-semibold {
-    font-weight: 600;
-  }
-  .weight-bold {
-    font-weight: 700;
-  }
-  .size-large {
-    font-size: 4.2rem;
-  }
-  .size-medium {
-    font-size: 1.8rem;
-  }
-  .size-small {
-    font-size: 1.4rem;
-  }
+   /* font weight */
+   .weight-regular {
+      font-weight: 400;
+   }
+   .weight-medium {
+      font-weight: 500;
+   }
+   .weight-semibold {
+      font-weight: 600;
+   }
+   .weight-bold {
+      font-weight: 700;
+   }
+   .size-large {
+      font-size: 4.2rem;
+   }
+   .size-medium {
+      font-size: 1.8rem;
+   }
+   .size-small {
+      font-size: 1.4rem;
+   }
 }
 
 /* left */
 .sec-3 > .content-wrap > .box {
-  display: flex;
-  justify-content: space-between;
-  margin-bottom: 20rem;
+   display: flex;
+   justify-content: space-between;
+   margin-bottom: 20rem;
 }
 .sec-3 > .content-wrap > .box > .left {
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
+   width: 100%;
+   display: flex;
+   flex-direction: column;
+   justify-content: space-between;
 }
 .sec-3 > .content-wrap > .box > .left > .top {
-  display: inline-block;
+   display: inline-block;
 }
 .sec-3 > .content-wrap > .box > .left > .top > .description {
-  font-weight: 700;
-  font-size: 2.2rem;
+   font-weight: 700;
+   font-size: 2.2rem;
 }
 .sec-3 > .content-wrap > .box > .left > .top > .font-name {
-  font-weight: 700;
-  font-size: 12.8rem;
-  line-height: 1.2;
+   font-weight: 700;
+   font-size: 12.8rem;
+   line-height: 1.2;
 }
 .sec-3 > .content-wrap > .box > .left > .top > .font-weight {
-  display: flex;
-  justify-content: space-between;
-  width: 49rem;
-  font-size: 1.8rem;
-  padding-top: 3.6rem;
-  border-top: var(--white) solid 0.1rem;
+   display: flex;
+   justify-content: space-between;
+   width: 49rem;
+   font-size: 1.8rem;
+   padding-top: 3.6rem;
+   border-top: var(--white) solid 0.1rem;
 }
 .sec-3 > .content-wrap > .box > .left > .bottom {
-  display: flex;
-  justify-content: space-between;
-  text-wrap: nowrap;
+   display: flex;
+   justify-content: space-between;
+   text-wrap: nowrap;
 }
 .sec-3 > .content-wrap > .box > .left > .bottom > .left > .font-size,
 .sec-3 > .content-wrap > .box > .left > .bottom > .right {
-  display: flex;
-  flex-direction: column;
-  gap: 1.2rem;
+   display: flex;
+   flex-direction: column;
+   gap: 1.2rem;
 }
 
 /* right */
 .sec-3 > .content-wrap > .box > .right {
-  display: flex;
-  flex-direction: column;
-  justify-content: end;
-  font-size: 60rem;
-  line-height: 0.7;
+   display: flex;
+   flex-direction: column;
+   justify-content: end;
+   font-size: 60rem;
+   line-height: 0.7;
 }
 
 /* box-2 */
 .sec-3 > .content-wrap > .box-2 {
-  font-family: "DM Serif", serif;
+   font-family: "DM Serif", serif;
 }
 .sec-3 > .content-wrap > .box-2 > .left > .top > .description {
-  font-family: "Urbanist", sans-serif;
+   font-family: "Urbanist", sans-serif;
 }
 .sec-3 > .content-wrap > .box-2 > .left > .top > .font-weight {
-  width: 57rem;
+   width: 57rem;
 }
 .sec-3 > .content-wrap > .box-2 > .left > .bottom > .right {
-  padding-right: 3rem;
+   padding-right: 3rem;
 }
 .sec-3 > .content-wrap > .box-2 > .right {
-  line-height: 0.85;
+   line-height: 0.85;
 }
 
 /* box-3 */
 .sec-3 > .content-wrap > .box-3 {
-  font-family: "Pretendard", sans-serif;
+   font-family: "Pretendard", sans-serif;
 }
 .sec-3 > .content-wrap > .box-3 > .left > .top > .description {
-  font-family: "Urbanist", sans-serif;
+   font-family: "Urbanist", sans-serif;
 }
 .sec-3 > .content-wrap > .box-3 > .left > .top > .font-weight {
-  width: 67rem;
+   width: 67rem;
 }
 
 /* ----------------------------- section 3 end -----------------------------*/
 
 /* sec-4 ============================================================================================== */
 .sec-4 {
-  display: flex;
-  justify-content: center;
+   display: flex;
+   justify-content: center;
 }
 
 .sec-4 > .content-container {
-  width: 187.2rem;
+   width: 187.2rem;
 }
 
 .sec-4 > .content-container > h2 {
-  font-size: 8rem;
-  font-weight: bold;
-  padding: 4.8rem 2rem;
-  display: flex;
-  justify-content: center;
+   font-size: 8rem;
+   font-weight: bold;
+   padding: 4.8rem 2rem;
+   display: flex;
+   justify-content: center;
 }
 
 .sec-4 > .content-container > h2 > p {
-  width: 164rem;
+   width: 164rem;
 }
 
 .sec-4 > .content-container > .content-wrap {
-  width: 100%;
+   width: 100%;
 }
 
 .sec-4 > .content-container > .content-wrap > .img-container {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 1.2rem;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   gap: 1.2rem;
 }
 
 .sec-4 > .content-container > .content-wrap > .img-container > .img-box {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border-radius: 2.4rem;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   border-radius: 2.4rem;
 }
 
 .sec-4 > .content-container > .content-wrap > .img-container > .img-box-1 {
-  background-color: black;
-  width: 93rem;
-  height: 77rem;
+   background-color: black;
+   width: 93rem;
+   height: 77rem;
+
+   /* sec-4 svg line animation */
+   svg {
+      width: 70rem;
+
+      .st0 {
+         clip-path: url(#SVGID_00000128474458227812408960000015076984062995758783_);
+      }
+      .st1 {
+         fill: #ffffff;
+      }
+      .st2 {
+         fill: none;
+         stroke: #ffffff;
+         stroke-width: 0.1rem;
+         stroke-miterlimit: 10;
+      }
+      .st3 {
+         fill: #ffffff;
+      }
+      .st4 {
+         fill: none;
+         stroke: #ffffff;
+         stroke-linecap: round;
+         stroke-miterlimit: 10;
+      }
+   }
 }
 
 .sec-4 > .content-container > .content-wrap > .img-container > .img-box-2 {
-  background-color: white;
-  width: 93rem;
-  height: 77rem;
+   background-color: white;
+   width: 93rem;
+   height: 77rem;
+
+   svg {
+      width: 55rem;
+
+      .st0 {
+         clip-path: url(#SVGID_00000152982101255659929970000002474586680019226013_);
+      }
+      .st1 {
+         fill: none;
+         stroke: #000;
+         stroke-width: 0.1rem;
+         stroke-linecap: round;
+         stroke-miterlimit: 10;
+      }
+      .st2 {
+         enable-background: new;
+      }
+      .st3 {
+         fill: #000000;
+      }
+      .st4 {
+         fill: #000000;
+      }
+      .st5 {
+         fill: #000000;
+      }
+   }
 }
 
 .sec-4 > .content-container > .content-wrap > .text-box {
-  display: flex;
-  justify-content: center;
-  gap: 4.8rem;
-  font-weight: medium;
-  font-size: 2.4rem;
-  text-wrap: nowrap;
-  padding: 9.6rem 2rem;
-  line-height: 1.6;
+   display: flex;
+   justify-content: center;
+   gap: 4.8rem;
+   font-weight: medium;
+   font-size: 2.4rem;
+   text-wrap: nowrap;
+   padding: 9.6rem 2rem;
+   line-height: 1.6;
 }
 
 .sec-4 > .content-container > .content-wrap > .text-box > .text-item {
-  width: 77.6rem;
-  display: flex;
-  flex-direction: column;
+   width: 77.6rem;
+   display: flex;
+   flex-direction: column;
 }
 
 .sec-4 > .content-container > .content-wrap > .text-box > .text-kr {
-  font-weight: normal !important;
-  padding-left: 2rem;
+   font-weight: normal !important;
+   padding-left: 2rem;
 }
 
 /* ----------------------------- section 5 ----------------------------- */
 .sec-5 {
-  background-color: var(--white);
-  color: var(--black);
-  padding: 8rem 0;
+   background-color: var(--white);
+   color: var(--black);
+   padding: 8rem 0;
 }
 /* change span to inline-block for aos animation */
 .sec-5 span {
-  display: inline-block;
+   display: inline-block;
 }
 
 .sec-5 > .content-wrap {
-  > .box {
-    display: flex;
-    gap: 2.4rem;
-    width: 100%;
-
-    .svg-container {
+   > .box {
       display: flex;
-      align-items: center;
-      flex-grow: 1;
+      gap: 2.4rem;
+      width: 100%;
 
-      > .svg-box {
-        flex-grow: 1;
-        display: flex;
-        justify-content: center;
-        align-items: center;
+      .svg-container {
+         display: flex;
+         align-items: center;
+         flex-grow: 1;
+
+         > .svg-box {
+            flex-grow: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+         }
       }
-    }
-    .title {
-      font-size: 42px;
-      font-weight: 700;
-      border-bottom: var(--black) solid 0.1rem;
-    }
-    > .left {
-      display: flex;
-      flex-direction: column;
-      width: 100%;
-    }
-    > .right {
-      display: flex;
-      flex-direction: column;
-      width: 100%;
-    }
-  }
+      .title {
+         font-size: 42px;
+         font-weight: 700;
+         border-bottom: var(--black) solid 0.1rem;
+      }
+      > .left {
+         display: flex;
+         flex-direction: column;
+         width: 100%;
+      }
+      > .right {
+         display: flex;
+         flex-direction: column;
+         width: 100%;
+      }
+   }
 }
 
 .sec-5 > .content-wrap > .box-1 {
-  height: 78rem;
+   height: 78rem;
 }
 .sec-5 > .content-wrap > .box-2 {
-  height: 84rem;
+   height: 84rem;
 }
 .sec-5 > .content-wrap > .box-2 > .left > .svg-container {
-  flex-direction: column;
+   flex-direction: column;
 }
 /* ----------------------------- section 5 end ----------------------------- */
 /* ----------------------------- section 6 ----------------------------- */
 /* sec-6 common setting */
 .sec-6 > .content-wrap > .box {
-  display: flex;
-  width: 100%;
-  height: 20rem;
-  gap: 1.2rem;
-  margin-bottom: 1.2rem;
+   display: flex;
+   width: 100%;
+   height: 20rem;
+   gap: 1.2rem;
+   margin-bottom: 1.2rem;
 
-  .left,
-  .right {
-    display: flex;
-    width: 100%;
-    gap: 1.2rem;
-  }
+   .left,
+   .right {
+      display: flex;
+      width: 100%;
+      gap: 1.2rem;
+   }
 
-  /* section 6 color box */
-  .color {
-    border-radius: 2.4rem;
-    box-sizing: border-box;
-    flex-grow: 1;
-    position: relative;
-  }
+   /* section 6 color box */
+   .color {
+      border-radius: 2.4rem;
+      box-sizing: border-box;
+      flex-grow: 1;
+      position: relative;
+   }
 
-  .primary {
-    background-color: var(--primary);
-    color: var(--black);
-    flex-grow: 2;
-    transform-origin: bottom;
-  }
-  .secondary {
-    background-color: var(--secondary);
-  }
-  .Bg-color {
-    background-color: var(--bgColor);
-  }
-  .mono-tone-gray {
-    background-color: var(--white);
-    color: var(--black);
-  }
-  .mono-tone-black {
-    background-color: var(--black);
-  }
-  .gradient {
-    background: linear-gradient(-90deg, var(--primary), var(--secondary));
-    color: var(--black);
-  }
+   .primary {
+      background-color: var(--primary);
+      color: var(--black);
+      flex-grow: 2;
+      transform-origin: bottom;
+   }
+   .secondary {
+      background-color: var(--secondary);
+   }
+   .Bg-color {
+      background-color: var(--bgColor);
+   }
+   .mono-tone-gray {
+      background-color: var(--white);
+      color: var(--black);
+   }
+   .mono-tone-black {
+      background-color: var(--black);
+   }
+   .gradient {
+      background: linear-gradient(-90deg, var(--primary), var(--secondary));
+      color: var(--black);
+   }
 }
 
 /* section 6 text box */
 .sec-6 > .content-wrap > .box .text-box {
-  position: absolute;
-  bottom: 3.6rem;
-  right: 3.6rem;
-  text-align: right;
+   position: absolute;
+   bottom: 3.6rem;
+   right: 3.6rem;
+   text-align: right;
 
-  > h4 {
-    font-size: 4.2rem;
-    font-weight: 700;
-  }
-  > h5 {
-    font-size: 2.4rem;
-    font-weight: 700;
-  }
-  > p {
-    font-size: 2.4rem;
-    font-weight: 500;
-  }
+   > h4 {
+      font-size: 4.2rem;
+      font-weight: 700;
+   }
+   > h5 {
+      font-size: 2.4rem;
+      font-weight: 700;
+   }
+   > p {
+      font-size: 2.4rem;
+      font-weight: 500;
+   }
 }
 
 .sec-6 > .content-wrap > .box-1 {
-  height: 60rem;
+   height: 60rem;
 }
 /* sec-6 color grow ani--init */
 .sec-6 > .content-wrap > .box-1.animate-init {
-  .color.primary::after {
-    content: "";
-    display: block;
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: var(--bgColor);
-  }
-  .color.secondary::after {
-    content: "";
-    display: block;
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: var(--bgColor);
-  }
-  .color.Bg-color {
-    border: var(--bgColor) solid 0.2rem;
-  }
-  .color.Bg-color::after {
-    content: "";
-    display: block;
-    position: absolute;
-    top: -0.2rem;
-    left: -0.2rem;
-    width: 101%;
-    height: 101%;
-    background-color: var(--bgColor);
-  }
+   .color.primary::after {
+      content: "";
+      display: block;
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: var(--bgColor);
+   }
+   .color.secondary::after {
+      content: "";
+      display: block;
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: var(--bgColor);
+   }
+   .color.Bg-color {
+      border: var(--bgColor) solid 0.2rem;
+   }
+   .color.Bg-color::after {
+      content: "";
+      display: block;
+      position: absolute;
+      top: -0.2rem;
+      left: -0.2rem;
+      width: 101%;
+      height: 101%;
+      background-color: var(--bgColor);
+   }
 }
 .sec-6 > .content-wrap > .box-2.animate-init {
-  .color.mono-tone-gray::after {
-    content: "";
-    display: block;
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: var(--bgColor);
-  }
-  .color.mono-tone-black {
-    border: var(--bgColor) solid 0.2rem;
-  }
-  .color.mono-tone-black::after {
-    content: "";
-    display: block;
-    position: absolute;
-    top: -0.2rem;
-    left: -0.2rem;
-    width: 102%;
-    height: 102%;
-    background-color: var(--bgColor);
-  }
+   .color.mono-tone-gray::after {
+      content: "";
+      display: block;
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: var(--bgColor);
+   }
+   .color.mono-tone-black {
+      border: var(--bgColor) solid 0.2rem;
+   }
+   .color.mono-tone-black::after {
+      content: "";
+      display: block;
+      position: absolute;
+      top: -0.2rem;
+      left: -0.2rem;
+      width: 102%;
+      height: 102%;
+      background-color: var(--bgColor);
+   }
 }
 .sec-6 > .content-wrap > .box-3.animate-init {
-  .color.gradient::after {
-    content: "";
-    display: block;
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: var(--bgColor);
-  }
+   .color.gradient::after {
+      content: "";
+      display: block;
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: var(--bgColor);
+   }
 }
 
 /* sec-6 color grow ani */
 /* === set transition here ===*/
 .sec-6 {
-  --transition-time: 0.8s;
-  --transition-time-horizontal: 1.2s;
+   --transition-time: 0.8s;
+   --transition-time-horizontal: 1.2s;
 }
 .sec-6 > .content-wrap > .box-1.animate {
-  .color.primary::after {
-    content: "";
-    display: block;
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 0%;
-    background-color: var(--bgColor);
-    transition: all var(--transition-time) 0.2s;
-  }
-  .color.secondary::after {
-    content: "";
-    display: block;
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 0%;
-    background-color: var(--bgColor);
-    transition: all var(--transition-time) 0.4s;
-  }
-  .color.Bg-color {
-    border: #aaaaaa solid 0.2rem;
-    transition: all var(--transition-time) 1.5s;
-  }
-  .color.Bg-color::after {
-    content: "";
-    display: block;
-    position: absolute;
-    top: -0.2rem;
-    left: -0.2rem;
-    width: 101%;
-    height: 0%;
-    background-color: var(--bgColor);
-    transition: all var(--transition-time) 0.6s;
-  }
+   .color.primary::after {
+      content: "";
+      display: block;
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 0%;
+      background-color: var(--bgColor);
+      transition: all var(--transition-time) 0.2s;
+   }
+   .color.secondary::after {
+      content: "";
+      display: block;
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 0%;
+      background-color: var(--bgColor);
+      transition: all var(--transition-time) 0.4s;
+   }
+   .color.Bg-color {
+      border: #aaaaaa solid 0.2rem;
+      transition: all var(--transition-time) 1.5s;
+   }
+   .color.Bg-color::after {
+      content: "";
+      display: block;
+      position: absolute;
+      top: -0.2rem;
+      left: -0.2rem;
+      width: 101%;
+      height: 0%;
+      background-color: var(--bgColor);
+      transition: all var(--transition-time) 0.6s;
+   }
 }
 .sec-6 > .content-wrap > .box-2.animate {
-  .color.mono-tone-gray::after {
-    content: "";
-    display: block;
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 0%;
-    height: 100%;
-    background-color: var(--bgColor);
-    transition: all var(--transition-time-horizontal) 0.2s;
-  }
-  .color.mono-tone-black {
-    border: var(--primary) solid 0.2rem;
-    transition: all var(--transition-time) 1.5s;
-  }
-  .color.mono-tone-black::after {
-    content: "";
-    display: block;
-    position: absolute;
-    top: -0.2rem;
-    left: -0.2rem;
-    width: 0%;
-    height: 102%;
-    background-color: var(--bgColor);
-    transition: all var(--transition-time-horizontal) 0.4s;
-  }
+   .color.mono-tone-gray::after {
+      content: "";
+      display: block;
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 0%;
+      height: 100%;
+      background-color: var(--bgColor);
+      transition: all var(--transition-time-horizontal) 0.2s;
+   }
+   .color.mono-tone-black {
+      border: var(--primary) solid 0.2rem;
+      transition: all var(--transition-time) 1.5s;
+   }
+   .color.mono-tone-black::after {
+      content: "";
+      display: block;
+      position: absolute;
+      top: -0.2rem;
+      left: -0.2rem;
+      width: 0%;
+      height: 102%;
+      background-color: var(--bgColor);
+      transition: all var(--transition-time-horizontal) 0.4s;
+   }
 }
 .sec-6 > .content-wrap > .box-3.animate {
-  .color.gradient::after {
-    content: "";
-    display: block;
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 0%;
-    height: 100%;
-    background-color: var(--bgColor);
-    transition: all var(--transition-time-horizontal) 0.2s;
-  }
+   .color.gradient::after {
+      content: "";
+      display: block;
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 0%;
+      height: 100%;
+      background-color: var(--bgColor);
+      transition: all var(--transition-time-horizontal) 0.2s;
+   }
 }
 
 /* sec-6 box-4 */
 .sec-6 > .content-wrap > .box-4 {
-  height: 90rem;
-  margin-top: 6rem;
+   height: 90rem;
+   margin-top: 6rem;
 
-  > div {
-    flex-direction: column;
-  }
+   > div {
+      flex-direction: column;
+   }
 
-  > .left {
-    flex: 2 1 0;
-    width: auto;
-  }
+   > .left {
+      flex: 2 1 0;
+      width: auto;
+   }
 
-  > .middle {
-    display: flex;
-    flex: 1 1 0;
-    gap: 1.2rem;
-  }
+   > .middle {
+      display: flex;
+      flex: 1 1 0;
+      gap: 1.2rem;
+   }
 
-  > .right {
-    flex: 1 1 0;
-    width: auto;
-  }
+   > .right {
+      flex: 1 1 0;
+      width: auto;
+   }
 
-  .img-box {
-    display: flex;
-    flex-grow: 1;
-    background-color: var(--black);
-    border-radius: 2.4rem;
+   .img-box {
+      display: flex;
+      flex-grow: 1;
+      background-color: var(--black);
+      border-radius: 2.4rem;
 
-    > img {
-      object-fit: contain;
-      object-position: center;
-      width: 100%;
-    }
-  }
+      > img {
+         object-fit: contain;
+         object-position: center;
+         width: 100%;
+      }
+   }
 
-  .img-box-1 {
-    flex: 1 1 0;
-  }
-  .img-box-2 {
-    display: flex;
-    justify-content: center;
-    flex: 2 1 0;
-    > img {
-      width: 64%;
-    }
-  }
-  .img-box-5 {
-    > img {
-      transform: scale(0.8);
-    }
-  }
+   .img-box-1 {
+      flex: 1 1 0;
+   }
+   .img-box-2 {
+      display: flex;
+      justify-content: center;
+      flex: 2 1 0;
+      > img {
+         width: 64%;
+      }
+   }
+   .img-box-5 {
+      > img {
+         transform: scale(0.8);
+      }
+   }
 }
 /* ----------------------------- section 6 end ----------------------------- */
 
 /* sec-7 ============================================================================================== */
 .sec-7 {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 1.2rem;
-  padding-bottom: 1.2rem;
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   gap: 1.2rem;
+   padding-bottom: 1.2rem;
 }
 /* container-1 ================================================== */
 .sec-7 > .content-container-1 {
-  width: 187.2rem;
-  display: flex;
-  flex-direction: column;
+   width: 187.2rem;
+   display: flex;
+   flex-direction: column;
 }
 
 .sec-7 > .content-container-1 > h2 {
-  font-size: 8rem;
-  font-weight: bold;
-  padding: 4.8rem 2rem;
-  display: flex;
-  justify-content: center;
+   font-size: 8rem;
+   font-weight: bold;
+   padding: 4.8rem 2rem;
+   display: flex;
+   justify-content: center;
 }
 
 .sec-7 > .content-container-1 > h2 > p {
-  width: 164rem;
+   width: 164rem;
 }
 
 .sec-7 > .content-container-1 > .content-wrap {
-  width: 100%;
-  height: 95rem;
-  display: flex;
-  gap: 1.2rem;
+   width: 100%;
+   height: 95rem;
+   display: flex;
+   gap: 1.2rem;
 }
 
 .sec-7 > .content-container-1 > .content-wrap > .mockup-box-1 {
-  width: 50%;
-  height: 100%;
-  border-radius: 2.4rem;
-  overflow: hidden;
-  box-sizing: border-box;
+   width: 50%;
+   height: 100%;
+   border-radius: 2.4rem;
+   overflow: hidden;
+   box-sizing: border-box;
 }
 
 .sec-7 > .content-container-1 > .content-wrap > .mockup-box-1 > img {
-  object-fit: cover;
-  width: 100%;
-  height: 100%;
+   object-fit: cover;
+   width: 100%;
+   height: 100%;
 }
 
 .sec-7 > .content-container-1 > .content-wrap > .mockup-box-2 {
-  width: 50%;
-  height: 100%;
-  border-radius: 2.4rem;
-  display: flex;
-  flex-direction: column;
-  gap: 1.2rem;
+   width: 50%;
+   height: 100%;
+   border-radius: 2.4rem;
+   display: flex;
+   flex-direction: column;
+   gap: 1.2rem;
 }
 
 .sec-7 > .content-container-1 > .content-wrap > .mockup-box-2 > .mockup-item-1 {
-  width: 100%;
-  height: 50%;
-  border-radius: 2.4rem;
-  display: flex;
-  gap: 1.2rem;
+   width: 100%;
+   height: 50%;
+   border-radius: 2.4rem;
+   display: flex;
+   gap: 1.2rem;
 }
 
-.sec-7
-  > .content-container-1
-  > .content-wrap
-  > .mockup-box-2
-  > .mockup-item-1
-  > .mockup-item-split-1 {
-  width: 50%;
-  height: 100%;
-  border-radius: 2.4rem;
-  overflow: hidden;
-  box-sizing: border-box;
+.sec-7 > .content-container-1 > .content-wrap > .mockup-box-2 > .mockup-item-1 > .mockup-item-split-1 {
+   width: 50%;
+   height: 100%;
+   border-radius: 2.4rem;
+   overflow: hidden;
+   box-sizing: border-box;
 }
 
-.sec-7
-  > .content-container-1
-  > .content-wrap
-  > .mockup-box-2
-  > .mockup-item-1
-  > .mockup-item-split-1
-  > img {
-  object-fit: cover;
-  width: 100%;
-  height: 100%;
+.sec-7 > .content-container-1 > .content-wrap > .mockup-box-2 > .mockup-item-1 > .mockup-item-split-1 > img {
+   object-fit: cover;
+   width: 100%;
+   height: 100%;
 }
 
-.sec-7
-  > .content-container-1
-  > .content-wrap
-  > .mockup-box-2
-  > .mockup-item-1
-  > .mockup-item-split-2 {
-  width: 50%;
-  height: 100%;
-  border-radius: 2.4rem;
-  overflow: hidden;
-  box-sizing: border-box;
+.sec-7 > .content-container-1 > .content-wrap > .mockup-box-2 > .mockup-item-1 > .mockup-item-split-2 {
+   width: 50%;
+   height: 100%;
+   border-radius: 2.4rem;
+   overflow: hidden;
+   box-sizing: border-box;
 }
 
-.sec-7
-  > .content-container-1
-  > .content-wrap
-  > .mockup-box-2
-  > .mockup-item-1
-  > .mockup-item-split-2
-  > img {
-  object-fit: cover;
-  width: 100%;
-  height: 100%;
+.sec-7 > .content-container-1 > .content-wrap > .mockup-box-2 > .mockup-item-1 > .mockup-item-split-2 > img {
+   object-fit: cover;
+   width: 100%;
+   height: 100%;
 }
 
 .sec-7 > .content-container-1 > .content-wrap > .mockup-box-2 > .mockup-item-2 {
-  width: 100%;
-  height: 50%;
-  border-radius: 2.4rem;
-  overflow: hidden;
-  box-sizing: border-box;
+   width: 100%;
+   height: 50%;
+   border-radius: 2.4rem;
+   overflow: hidden;
+   box-sizing: border-box;
 }
 
-.sec-7
-  > .content-container-1
-  > .content-wrap
-  > .mockup-box-2
-  > .mockup-item-2
-  > img {
-  object-fit: cover;
-  width: 100%;
-  height: 100%;
+.sec-7 > .content-container-1 > .content-wrap > .mockup-box-2 > .mockup-item-2 > img {
+   object-fit: cover;
+   width: 100%;
+   height: 100%;
 }
 /* container-2 ================================================== */
 .sec-7 > .content-container-2 {
-  width: 187.2rem;
-  display: flex;
-  flex-direction: column;
+   width: 187.2rem;
+   display: flex;
+   flex-direction: column;
 }
 
 .sec-7 > .content-container-2 > .content-wrap {
-  width: 100%;
-  height: 95rem;
-  display: flex;
-  gap: 1.2rem;
+   width: 100%;
+   height: 95rem;
+   display: flex;
+   gap: 1.2rem;
 }
 
 .sec-7 > .content-container-2 > .content-wrap > .mockup-box-1 {
-  width: 100%;
-  height: 100%;
-  border-radius: 2.4rem;
-  display: flex;
-  gap: 1.2rem;
+   width: 100%;
+   height: 100%;
+   border-radius: 2.4rem;
+   display: flex;
+   gap: 1.2rem;
 }
 
 .sec-7 > .content-container-2 > .content-wrap > .mockup-box-1 > .mockup-item-1 {
-  width: 50%;
-  height: 100%;
-  border-radius: 2.4rem;
-  overflow: hidden;
-  box-sizing: border-box;
+   width: 50%;
+   height: 100%;
+   border-radius: 2.4rem;
+   overflow: hidden;
+   box-sizing: border-box;
 }
 
-.sec-7
-  > .content-container-2
-  > .content-wrap
-  > .mockup-box-1
-  > .mockup-item-1
-  > img {
-  object-fit: cover;
-  width: 100%;
-  height: 100%;
+.sec-7 > .content-container-2 > .content-wrap > .mockup-box-1 > .mockup-item-1 > img {
+   object-fit: cover;
+   width: 100%;
+   height: 100%;
 }
 
 .sec-7 > .content-container-2 > .content-wrap > .mockup-box-1 > .mockup-item-2 {
-  width: 50%;
-  height: 100%;
-  border-radius: 2.4rem;
-  overflow: hidden;
-  box-sizing: border-box;
+   width: 50%;
+   height: 100%;
+   border-radius: 2.4rem;
+   overflow: hidden;
+   box-sizing: border-box;
 }
 
-.sec-7
-  > .content-container-2
-  > .content-wrap
-  > .mockup-box-1
-  > .mockup-item-2
-  > img {
-  object-fit: cover;
-  width: 100%;
-  height: 100%;
+.sec-7 > .content-container-2 > .content-wrap > .mockup-box-1 > .mockup-item-2 > img {
+   object-fit: cover;
+   width: 100%;
+   height: 100%;
 }
 
 .sec-7 > .content-container-2 > .content-wrap > .mockup-box-2 {
-  width: 100%;
-  height: 100%;
-  border-radius: 2.4rem;
-  overflow: hidden;
-  box-sizing: border-box;
+   width: 100%;
+   height: 100%;
+   border-radius: 2.4rem;
+   overflow: hidden;
+   box-sizing: border-box;
 }
 
 .sec-7 > .content-container-2 > .content-wrap > .mockup-box-2 > img {
-  object-fit: cover;
-  width: 100%;
-  height: 100%;
+   object-fit: cover;
+   width: 100%;
+   height: 100%;
 }
 /* container-3 ================================================== */
 .sec-7 > .content-container-3 {
-  width: 187.2rem;
+   width: 187.2rem;
 }
 
 .sec-7 > .content-container-3 > .content-wrap {
-  width: 100%;
-  height: 95rem;
+   width: 100%;
+   height: 95rem;
 }
 
 .sec-7 > .content-container-3 > .content-wrap > .mockup-box-1 {
-  width: 100%;
-  height: 100%;
-  border-radius: 2.4rem;
-  overflow: hidden;
-  box-sizing: border-box;
+   width: 100%;
+   height: 100%;
+   border-radius: 2.4rem;
+   overflow: hidden;
+   box-sizing: border-box;
 }
 
 .sec-7 > .content-container-3 > .content-wrap > .mockup-box-1 > img {
-  object-fit: cover;
-  width: 100%;
-  height: 100%;
+   object-fit: cover;
+   width: 100%;
+   height: 100%;
 }
 /* container-4 ================================================== */
 .sec-7 > .content-container-4 {
-  width: 187.2rem;
+   width: 187.2rem;
 }
 
 .sec-7 > .content-container-4 > .content-wrap {
-  width: 100%;
-  height: 95rem;
+   width: 100%;
+   height: 95rem;
 }
 
 .sec-7 > .content-container-4 > .content-wrap > .mockup-box-1 {
-  width: 100%;
-  height: 100%;
-  border-radius: 2.4rem;
-  overflow: hidden;
-  box-sizing: border-box;
+   width: 100%;
+   height: 100%;
+   border-radius: 2.4rem;
+   overflow: hidden;
+   box-sizing: border-box;
 }
 
 .sec-7 > .content-container-4 > .content-wrap > .mockup-box-1 > img {
-  object-fit: cover;
-  width: 100%;
-  height: 100%;
+   object-fit: cover;
+   width: 100%;
+   height: 100%;
 }
 /* container-5 ================================================== */
 .sec-7 > .content-container-5 {
-  width: 187.2rem;
-  display: flex;
-  flex-direction: column;
+   width: 187.2rem;
+   display: flex;
+   flex-direction: column;
 }
 
 .sec-7 > .content-container-5 > .content-wrap {
-  width: 100%;
-  height: 95rem;
-  display: flex;
-  gap: 1.2rem;
+   width: 100%;
+   height: 95rem;
+   display: flex;
+   gap: 1.2rem;
 }
 
 .sec-7 > .content-container-5 > .content-wrap > .mockup-box-1 {
-  width: 50%;
-  height: 100%;
-  border-radius: 2.4rem;
-  overflow: hidden;
-  box-sizing: border-box;
+   width: 50%;
+   height: 100%;
+   border-radius: 2.4rem;
+   overflow: hidden;
+   box-sizing: border-box;
 }
 
 .sec-7 > .content-container-5 > .content-wrap > .mockup-box-1 > img {
-  object-fit: cover;
-  width: 100%;
-  height: 100%;
+   object-fit: cover;
+   width: 100%;
+   height: 100%;
 }
 .sec-7 > .content-container-5 > .content-wrap > .mockup-box-2 {
-  display: flex;
-  flex-direction: column;
-  gap: 1.2rem;
+   display: flex;
+   flex-direction: column;
+   gap: 1.2rem;
 }
 
 .sec-7 > .content-container-5 > .content-wrap > .mockup-box-2 > .mockup-item-1 {
-  width: 100%;
-  height: 50%;
-  border-radius: 2.4rem;
-  overflow: hidden;
-  box-sizing: border-box;
+   width: 100%;
+   height: 50%;
+   border-radius: 2.4rem;
+   overflow: hidden;
+   box-sizing: border-box;
 }
 
-.sec-7
-  > .content-container-5
-  > .content-wrap
-  > .mockup-box-2
-  > .mockup-item-1
-  > img {
-  object-fit: cover;
-  width: 100%;
-  height: 100%;
+.sec-7 > .content-container-5 > .content-wrap > .mockup-box-2 > .mockup-item-1 > img {
+   object-fit: cover;
+   width: 100%;
+   height: 100%;
 }
 
 .sec-7 > .content-container-5 > .content-wrap > .mockup-box-2 > .mockup-item-2 {
-  width: 100%;
-  height: 50%;
-  border-radius: 2.4rem;
-  overflow: hidden;
-  box-sizing: border-box;
+   width: 100%;
+   height: 50%;
+   border-radius: 2.4rem;
+   overflow: hidden;
+   box-sizing: border-box;
 }
 
-.sec-7
-  > .content-container-5
-  > .content-wrap
-  > .mockup-box-2
-  > .mockup-item-2
-  > img {
-  object-fit: cover;
-  width: 100%;
-  height: 100%;
+.sec-7 > .content-container-5 > .content-wrap > .mockup-box-2 > .mockup-item-2 > img {
+   object-fit: cover;
+   width: 100%;
+   height: 100%;
 }
 /* container-6 ================================================== */
 .sec-7 > .content-container-6 {
-  width: 187.2rem;
+   width: 187.2rem;
 }
 
 .sec-7 > .content-container-6 > .content-wrap {
-  width: 100%;
-  height: 95rem;
+   width: 100%;
+   height: 95rem;
 }
 
 .sec-7 > .content-container-6 > .content-wrap > .mockup-box-1 {
-  width: 100%;
-  height: 100%;
-  border-radius: 2.4rem;
-  overflow: hidden;
-  box-sizing: border-box;
+   width: 100%;
+   height: 100%;
+   border-radius: 2.4rem;
+   overflow: hidden;
+   box-sizing: border-box;
 }
 
 .sec-7 > .content-container-6 > .content-wrap > .mockup-box-1 > img {
-  object-fit: cover;
-  width: 100%;
-  height: 100%;
+   object-fit: cover;
+   width: 100%;
+   height: 100%;
 }
 /* container-7 ================================================== */
 .sec-7 > .content-container-7 {
-  width: 187.2rem;
-  display: flex;
-  flex-direction: column;
+   width: 187.2rem;
+   display: flex;
+   flex-direction: column;
 }
 
 .sec-7 > .content-container-7 > .content-wrap {
-  width: 100%;
-  height: 70rem;
-  display: flex;
-  gap: 1.2rem;
+   width: 100%;
+   height: 70rem;
+   display: flex;
+   gap: 1.2rem;
 }
 
 .sec-7 > .content-container-7 > .content-wrap > .mockup-box-1 {
-  width: 100%;
-  height: 100%;
-  border-radius: 2.4rem;
-  overflow: hidden;
-  box-sizing: border-box;
+   width: 100%;
+   height: 100%;
+   border-radius: 2.4rem;
+   overflow: hidden;
+   box-sizing: border-box;
 }
 
 .sec-7 > .content-container-7 > .content-wrap > .mockup-box-1 > img {
-  object-fit: cover;
-  width: 100%;
-  height: 100%;
+   object-fit: cover;
+   width: 100%;
+   height: 100%;
 }
 
 .sec-7 > .content-container-7 > .content-wrap > .mockup-box-2 {
-  width: 100%;
-  height: 100%;
-  border-radius: 2.4rem;
-  overflow: hidden;
-  box-sizing: border-box;
+   width: 100%;
+   height: 100%;
+   border-radius: 2.4rem;
+   overflow: hidden;
+   box-sizing: border-box;
 }
 
 .sec-7 > .content-container-7 > .content-wrap > .mockup-box-2 > img {
-  object-fit: cover;
-  width: 100%;
-  height: 100%;
+   object-fit: cover;
+   width: 100%;
+   height: 100%;
 }
 /* container-8 ================================================== */
 .sec-7 > .content-container-8 {
-  width: 187.2rem;
-  height: 95rem;
-  display: flex;
-  flex-direction: column;
+   width: 187.2rem;
+   height: 95rem;
+   display: flex;
+   flex-direction: column;
 }
 
 .sec-7 > .content-container-8 > .content-wrap {
-  width: 100%;
-  height: 100%;
-  display: flex;
-  gap: 1.2rem;
+   width: 100%;
+   height: 100%;
+   display: flex;
+   gap: 1.2rem;
 }
 
 .sec-7 > .content-container-8 > .content-wrap > .mockup-box-1 {
-  display: flex;
-  flex-direction: column;
-  gap: 1.2rem;
+   display: flex;
+   flex-direction: column;
+   gap: 1.2rem;
 }
 
 .sec-7 > .content-container-8 > .content-wrap > .mockup-box-1 > .mockup-item-1 {
-  width: 100%;
-  height: 100%;
-  border-radius: 2.4rem;
-  overflow: hidden;
-  box-sizing: border-box;
+   width: 100%;
+   height: 100%;
+   border-radius: 2.4rem;
+   overflow: hidden;
+   box-sizing: border-box;
 }
 
-.sec-7
-  > .content-container-8
-  > .content-wrap
-  > .mockup-box-1
-  > .mockup-item-1
-  > img {
-  object-fit: cover;
-  width: 100%;
-  height: 100%;
+.sec-7 > .content-container-8 > .content-wrap > .mockup-box-1 > .mockup-item-1 > img {
+   object-fit: cover;
+   width: 100%;
+   height: 100%;
 }
 
 .sec-7 > .content-container-8 > .content-wrap > .mockup-box-1 > .mockup-item-2 {
-  width: 100%;
-  height: 100%;
-  border-radius: 2.4rem;
-  overflow: hidden;
-  box-sizing: border-box;
+   width: 100%;
+   height: 100%;
+   border-radius: 2.4rem;
+   overflow: hidden;
+   box-sizing: border-box;
 }
 
-.sec-7
-  > .content-container-8
-  > .content-wrap
-  > .mockup-box-1
-  > .mockup-item-2
-  > img {
-  object-fit: cover;
-  width: 100%;
-  height: 100%;
+.sec-7 > .content-container-8 > .content-wrap > .mockup-box-1 > .mockup-item-2 > img {
+   object-fit: cover;
+   width: 100%;
+   height: 100%;
 }
 
 .sec-7 > .content-container-8 > .content-wrap > .mockup-box-2 {
-  width: 100%;
-  height: 100%;
-  border-radius: 2.4rem;
-  overflow: hidden;
-  box-sizing: border-box;
+   width: 100%;
+   height: 100%;
+   border-radius: 2.4rem;
+   overflow: hidden;
+   box-sizing: border-box;
 }
 
 .sec-7 > .content-container-8 > .content-wrap > .mockup-box-2 > img {
-  object-fit: cover;
-  width: 100%;
-  height: 100%;
+   object-fit: cover;
+   width: 100%;
+   height: 100%;
 }
 /* container-9 ================================================== */
 .sec-7 > .content-container-9 {
-  width: 187.2rem;
-  display: flex;
-  flex-direction: column;
+   width: 187.2rem;
+   display: flex;
+   flex-direction: column;
 }
 
 .sec-7 > .content-container-9 > .content-wrap {
-  width: 100%;
-  height: 70rem;
-  display: flex;
-  gap: 1.2rem;
+   width: 100%;
+   height: 70rem;
+   display: flex;
+   gap: 1.2rem;
 }
 
 .sec-7 > .content-container-9 > .content-wrap > .mockup-box-1 {
-  width: 100%;
-  height: 100%;
-  border-radius: 2.4rem;
-  overflow: hidden;
-  box-sizing: border-box;
+   width: 100%;
+   height: 100%;
+   border-radius: 2.4rem;
+   overflow: hidden;
+   box-sizing: border-box;
 }
 
 .sec-7 > .content-container-9 > .content-wrap > .mockup-box-1 > img {
-  object-fit: cover;
-  width: 100%;
-  height: 100%;
+   object-fit: cover;
+   width: 100%;
+   height: 100%;
 }
 
 .sec-7 > .content-container-9 > .content-wrap > .mockup-box-2 {
-  width: 100%;
-  height: 100%;
-  border-radius: 2.4rem;
-  overflow: hidden;
-  box-sizing: border-box;
+   width: 100%;
+   height: 100%;
+   border-radius: 2.4rem;
+   overflow: hidden;
+   box-sizing: border-box;
 }
 
 .sec-7 > .content-container-9 > .content-wrap > .mockup-box-2 > img {
-  object-fit: cover;
-  width: 100%;
-  height: 100%;
+   object-fit: cover;
+   width: 100%;
+   height: 100%;
 }
 /* container-10 ================================================== */
 .sec-7 > .content-container-10 {
-  width: 187.2rem;
-  display: flex;
-  flex-direction: column;
+   width: 187.2rem;
+   display: flex;
+   flex-direction: column;
 }
 
 .sec-7 > .content-container-10 > .content-wrap {
-  width: 100%;
-  height: 70rem;
-  display: flex;
-  gap: 1.2rem;
+   width: 100%;
+   height: 70rem;
+   display: flex;
+   gap: 1.2rem;
 }
 
 .sec-7 > .content-container-10 > .content-wrap > .mockup-box-1 {
-  width: 100%;
-  height: 100%;
-  border-radius: 2.4rem;
-  overflow: hidden;
-  box-sizing: border-box;
+   width: 100%;
+   height: 100%;
+   border-radius: 2.4rem;
+   overflow: hidden;
+   box-sizing: border-box;
 }
 
 .sec-7 > .content-container-10 > .content-wrap > .mockup-box-1 > img {
-  object-fit: cover;
-  width: 100%;
-  height: 100%;
+   object-fit: cover;
+   width: 100%;
+   height: 100%;
 }
 
 .sec-7 > .content-container-10 > .content-wrap > .mockup-box-2 {
-  width: 100%;
-  height: 100%;
-  border-radius: 2.4rem;
-  overflow: hidden;
-  box-sizing: border-box;
+   width: 100%;
+   height: 100%;
+   border-radius: 2.4rem;
+   overflow: hidden;
+   box-sizing: border-box;
 }
 
 .sec-7 > .content-container-10 > .content-wrap > .mockup-box-2 > img {
-  object-fit: cover;
-  width: 100%;
-  height: 100%;
+   object-fit: cover;
+   width: 100%;
+   height: 100%;
 }

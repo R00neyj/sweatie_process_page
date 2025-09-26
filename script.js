@@ -1,3 +1,4 @@
+gsap.registerPlugin(DrawSVGPlugin);
 AOS.init();
 
 // text split
@@ -24,7 +25,7 @@ function textSplit__init() {
 
 textSplit__init();
 
-function colorGrow__init() {
+function animationObserver__init() {
    const target = document.querySelectorAll(`.sec-6 .box-1, .sec-6 .box-2, .sec-6 .box-3`);
 
    target.forEach((el) => {
@@ -51,4 +52,33 @@ function colorGrow__init() {
       colorGrowObserver.observe(el);
    });
 }
-colorGrow__init();
+animationObserver__init();
+
+function svgAnimationObserver__init() {
+   const target = document.querySelectorAll(`.sec-4 .img-container`);
+   console.log(target);
+
+   const lineAniObserver = new IntersectionObserver(
+      function (entries) {
+         entries.forEach((entry) => {
+            let isIntersecting = entry.isIntersecting;
+            if (isIntersecting) {
+               gsap.from("#vertical_logo #lines > path", { duration: 2, drawSVG: 0 });
+               gsap.from("#horizontal_logo #line > path", { duration: 2, drawSVG: 0 });
+               target.forEach((el) => {
+                  lineAniObserver.unobserve(el);
+               });
+            }
+         });
+      },
+      {
+         root: null,
+         threshold: 0,
+      }
+   );
+
+   target.forEach((el) => {
+      lineAniObserver.observe(el);
+   });
+}
+svgAnimationObserver__init();
