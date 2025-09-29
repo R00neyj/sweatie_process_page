@@ -69,14 +69,14 @@ function svgAnimation__init() {
                setTimeout(() => {
                   target.classList.remove("animate-init");
                   gaspDrawPath();
-               }, 1000);
+               }, 400);
                lineAniObserver.unobserve(target);
             }
          });
       },
       {
          root: null,
-         threshold: 0,
+         threshold: 0.75,
       }
    );
 
