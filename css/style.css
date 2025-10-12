@@ -1190,6 +1190,7 @@ section.sec-1 {
 }
 
 .sec-7 > .content-container-8 > .content-wrap > .mockup-box-1 {
+  width: 100%;
   display: flex;
   flex-direction: column;
   gap: 1.2rem;
