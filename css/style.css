@@ -61,6 +61,74 @@ body {
 .section > .content-container {
   width: 184rem;
 }
+/* ----------------------------- loading screen ----------------------------- */
+@keyframes loading {
+  0% {
+    width: 0;
+  }
+  100% {
+    width: 100%;
+  }
+}
+.loading-screen.active {
+  visibility: visible;
+  opacity: 1;
+  filter: blur(0px);
+  transform: scale(1);
+}
+
+.loading-screen {
+  --loading-time: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 2000;
+  background-color: #000;
+  transition: all 1s;
+  visibility: hidden;
+  opacity: 0;
+  filter: blur(10px);
+  transform: scale(1.2);
+
+  .logo-box {
+    color: var(--black);
+    filter: blur(4px);
+    > svg {
+      width: 50rem;
+    }
+  }
+
+  .logo-box.overlay {
+    filter: blur(0px);
+    color: var(--white);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0%;
+    overflow: hidden;
+    animation: loading var(--loading-time) 1 forwards ease;
+  }
+
+  > .text-box {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  > .percentage {
+    position: absolute;
+    bottom: 5rem;
+    right: 5rem;
+    font-size: 5rem;
+
+    .number {
+      font-weight: 700;
+    }
+  }
+}
 /* ----------------------------- section1 ----------------------------- */
 section.sec-1 {
   height: 110dvh;
@@ -1084,6 +1152,7 @@ section.sec-1 {
   height: 100%;
 }
 .sec-7 > .content-container-5 > .content-wrap > .mockup-box-2 {
+  width: 50%;
   display: flex;
   flex-direction: column;
   gap: 1.2rem;
