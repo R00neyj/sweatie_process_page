@@ -55,6 +55,18 @@ body {
 .section > .content-container {
   width: 184rem;
 }
+
+.section p {
+  line-height: 1.8;
+}
+
+.section h2,
+h3,
+h4,
+h5 {
+  line-height: 1.3;
+}
+
 /* ----------------------------- loading screen ----------------------------- */
 @keyframes loading {
   0% {
@@ -69,6 +81,7 @@ body {
   opacity: 1;
   filter: blur(0px);
   transform: scale(1);
+  cursor: wait;
 }
 
 .loading-screen {
@@ -123,6 +136,63 @@ body {
     }
   }
 }
+/* ----------------------------- go to web btn! ----------------------------- */
+.web-btn {
+  position: fixed;
+  bottom: 4rem;
+  right: 4rem;
+  z-index: 100;
+
+  a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background-color: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(4px) invert(0.1);
+    width: 8rem;
+    height: 8rem;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 1rem;
+    box-sizing: border-box;
+
+    color: var(--primary);
+    transition: all 0.3s;
+  }
+
+  .text {
+    font-size: 2rem;
+    position: absolute;
+    bottom: 50%;
+    right: 120%;
+    white-space: nowrap;
+    padding: 1rem 2rem;
+    background-color: #fff;
+    color: var(--black);
+    border-radius: 5rem;
+    z-index: -1;
+    font-weight: 600;
+    pointer-events: none;
+
+    visibility: hidden;
+    opacity: 0;
+    transform: translate(20%, 50%);
+
+    transition: all 0.3s;
+  }
+
+  &:hover {
+    a {
+      background-color: rgba(255, 255, 255, 0.25);
+    }
+    .text {
+      visibility: visible;
+      opacity: 1;
+      transform: translate(0%, 50%);
+    }
+  }
+}
+
 /* ----------------------------- section1 ----------------------------- */
 section.sec-1 {
   height: 110dvh;
@@ -311,7 +381,7 @@ section.sec-1 {
 }
 /* ----------------------------- section background ----------------------------- */
 /* text box */
-.sec-background > .content-wrap > .text-box {
+.section > .content-wrap > .text-box {
   width: 164rem;
   padding: 2rem;
 
@@ -338,36 +408,40 @@ section.sec-1 {
 }
 
 /* graph general */
-.sec-background > .content-wrap > .graph-con {
-  display: flex;
-  gap: 1.2rem;
-  width: 100%;
-  margin-top: 5rem;
+.sec-background > .content-wrap {
+  padding-bottom: 8rem;
 
-  .graph-box {
-    flex: 1 1 0;
-    text-align: center;
+  > .graph-con {
+    display: flex;
+    gap: 1.2rem;
+    width: 100%;
+    margin-top: 5rem;
 
-    .inner {
-      display: flex;
-      flex-direction: column;
-      box-sizing: border-box;
-      background-color: #222;
-      height: 60rem;
-      border-radius: 2.4rem;
-      overflow: hidden;
-      padding: 2.4rem;
+    .graph-box {
+      flex: 1 1 0;
+      text-align: center;
 
-      > span {
-        text-align: right;
-        font-size: 1.8rem;
-        font-weight: 700;
-        color: #999;
+      .inner {
+        display: flex;
+        flex-direction: column;
+        box-sizing: border-box;
+        background-color: #222;
+        height: 60rem;
+        border-radius: 2.4rem;
+        overflow: hidden;
+        padding: 2.4rem;
+
+        > span {
+          text-align: right;
+          font-size: 1.8rem;
+          font-weight: 700;
+          color: #999;
+        }
       }
-    }
 
-    h4 {
-      font-size: 2.4rem;
+      h4 {
+        font-size: 2.4rem;
+      }
     }
   }
 }
@@ -514,6 +588,158 @@ section.sec-1 {
     .bar-outter:nth-child(3) > .bar-inner {
       width: 80%;
       justify-content: end;
+    }
+  }
+}
+/* ----------------------------- section user research ----------------------------- */
+.sec-user-research {
+  .box {
+    position: relative;
+    margin-top: 5rem;
+
+    .img-box > img {
+      object-fit: cover;
+    }
+
+    .card {
+      position: absolute;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      width: 45rem;
+      height: 23rem;
+      box-sizing: border-box;
+      border-radius: 2.4rem;
+      padding: 2.4rem;
+
+      background-color: var(--secondary);
+      color: var(--white);
+      box-shadow: 0 6px 24px rgba(0, 0, 0, 0.12);
+      /* transform: translate(-50%,-50%); */
+
+      font-size: 2rem;
+      font-weight: 500;
+      text-align: center;
+
+      h5 {
+        font-size: 2.8rem;
+        font-weight: 700;
+      }
+    }
+
+    .card-1 {
+      top: 10%;
+      left: 30%;
+    }
+    .card-2 {
+      top: 26%;
+      left: 50%;
+    }
+    .card-3 {
+      top: 43%;
+      left: 30%;
+    }
+    .card-4 {
+      top: 61%;
+      left: 50%;
+    }
+  }
+}
+/* ----------------------------- section problem ----------------------------- */
+.sec-problem {
+  padding-bottom: 8rem;
+}
+.sec-problem .box-container {
+  display: flex;
+  gap: 1.2rem;
+  width: 100%;
+
+  margin: 5rem 0;
+
+  .box {
+    flex: 1 1 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 2.4rem;
+
+    box-sizing: border-box;
+    border: 1px solid #ee4141;
+    border-radius: 2.4rem;
+    background-color: #222;
+
+    padding: 4.8rem 2.4rem;
+
+    font-size: 2.4rem;
+    font-weight: 700;
+
+    .numb {
+      font-size: 4.2rem;
+      color: #ee4141;
+    }
+  }
+}
+
+/* ----------------------------- section insight ----------------------------- */
+.sec-insight {
+  padding-bottom: 8rem;
+  text-align: center;
+
+  .svg-box path {
+    transform-origin: center;
+  }
+
+  .text-box {
+    max-width: 120rem;
+  }
+}
+
+.sec-insight .box-container {
+  display: flex;
+  gap: 1.2rem;
+  width: 100%;
+  margin: 5rem 0;
+
+  > .box {
+    flex: 1 1 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    box-sizing: border-box;
+    border: 1px solid var(--primary);
+    border-radius: 2.4rem;
+    padding: 4.8rem 2.4rem;
+
+    background-color: #222;
+    font-size: 2.4rem;
+    font-weight: 500;
+  }
+}
+/* ----------------------------- section solution ----------------------------- */
+.sec-solution {
+  width: 100%;
+  height: 100vh;
+  flex-direction: column;
+  align-items: center;
+
+  background-color: var(--primary);
+  color: var(--black);
+
+  text-align: center;
+  font-size: 2.8rem;
+  font-weight: 500;
+
+  p {
+    position: relative;
+
+    .overlay {
+      display: block;
+      width: 100%;
+      white-space: nowrap;
     }
   }
 }
