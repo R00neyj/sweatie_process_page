@@ -1,12 +1,6 @@
 /* font 국문 프리텐다드 / 영문 어바니스트*/
 @import url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css");
 
-/*
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Urbanist:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
- */
-
 /* font-size adjustment */
 html {
   font-size: max(8px, 0.5208vw);
@@ -315,6 +309,215 @@ section.sec-1 {
     font-weight: 400;
   }
 }
+/* ----------------------------- section background ----------------------------- */
+/* text box */
+.sec-background > .content-wrap > .text-box {
+  width: 164rem;
+  padding: 2rem;
+
+  h3 {
+    font-size: 4.2rem;
+    margin-bottom: 1.6rem;
+  }
+  p {
+    font-size: 2.2rem;
+    font-weight: 500;
+  }
+
+  p:first-of-type {
+    margin-bottom: 2.4rem;
+  }
+}
+
+/* graph */
+.source-label {
+  display: inline-block;
+  margin-top: 1.2rem;
+  font-size: 1.4rem;
+  color: #aaa;
+}
+
+/* graph general */
+.sec-background > .content-wrap > .graph-con {
+  display: flex;
+  gap: 1.2rem;
+  width: 100%;
+  margin-top: 5rem;
+
+  .graph-box {
+    flex: 1 1 0;
+    text-align: center;
+
+    .inner {
+      display: flex;
+      flex-direction: column;
+      box-sizing: border-box;
+      background-color: #222;
+      height: 60rem;
+      border-radius: 2.4rem;
+      overflow: hidden;
+      padding: 2.4rem;
+
+      > span {
+        text-align: right;
+        font-size: 1.8rem;
+        font-weight: 700;
+        color: #999;
+      }
+    }
+
+    h4 {
+      font-size: 2.4rem;
+    }
+  }
+}
+
+/* graph chart general */
+.sec-background .graph {
+  display: flex;
+  position: relative;
+  box-sizing: border-box;
+  height: 100%;
+
+  .circle {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 10rem;
+    height: 10rem;
+    background-color: #f7f7f7;
+    color: #000;
+    border-radius: 99rem;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 2.4rem;
+    font-weight: 700;
+
+    > .year-label {
+      position: absolute;
+      top: -4rem;
+      left: 50%;
+      transform: translateX(-50%);
+      color: #b8b8b8;
+      font-size: 2.4rem;
+
+      > span {
+        display: inline-block;
+        padding-left: 0.4rem;
+        font-size: 2.2rem;
+      }
+    }
+  }
+}
+
+/* box 1 graph */
+.sec-background .graph-box.box-1 .graph {
+  .circle-1 {
+    background-color: #b9b9b9;
+    color: #111;
+    left: 10rem;
+  }
+  .circle-2 {
+    left: 18rem;
+    width: 30rem;
+    height: 30rem;
+    font-size: 8rem;
+    .year-label {
+      color: #f7f7f7;
+      font-size: 3.2rem;
+      top: -5rem;
+    }
+  }
+}
+
+/* box 2 graph  */
+.sec-background .graph-box.box-2 .graph {
+  .circle-1 {
+    left: 0.5rem;
+    background-color: #666;
+  }
+  .circle-2 {
+    left: 8rem;
+    background-color: #b9b9b9;
+    width: 20rem;
+    height: 20rem;
+    font-size: 4.2rem;
+  }
+  .circle-3 {
+    left: 24.5rem;
+    background-color: #f7f7f7;
+    width: 30rem;
+    height: 30rem;
+    font-size: 8rem;
+    .year-label {
+      color: #f7f7f7;
+      font-size: 3.2rem;
+      top: -5rem;
+    }
+  }
+}
+
+/* box 3 bar chart */
+.sec-background .graph-box.box-3 .inner {
+  font-size: 2.4rem;
+  font-weight: 700;
+  h5 {
+    font-size: 2.4rem;
+    text-align: start;
+  }
+
+  .bar-outter {
+    background-color: rgba(255, 255, 255, 0.1);
+    width: 100%;
+    height: 7.2rem;
+    border-radius: 9rem;
+    overflow: hidden;
+
+    .bar-inner {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100%;
+      background-color: #f7f7f7;
+      color: #111;
+      padding: 0 1.2rem;
+      border-radius: 9rem;
+    }
+  }
+
+  .top {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 1.6rem;
+
+    .bar-outter > .bar-inner {
+      width: 89%;
+      justify-content: end;
+    }
+  }
+
+  .bottom {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 1.6rem;
+
+    .bar-outter:nth-child(2) > .bar-inner {
+      width: 40%;
+      color: #333;
+      background-color: #999;
+    }
+    .bar-outter:nth-child(3) > .bar-inner {
+      width: 80%;
+      justify-content: end;
+    }
+  }
+}
+
 /* ----------------------------- section 3 ----------------------------- */
 
 /* sec-3 box common*/
