@@ -159,56 +159,75 @@ ScrollSmoother.create({
 });
 
 const gsapAni__init = () => {
-  const AniTarget = document.querySelectorAll(`[data-gsap="fade"],[data-gsap="popin"],[data-gsap="left"]`);
-  const Duration = 500;
+  const AniTarget = document.querySelectorAll(`
+    [data-gsap="fade"],
+    [data-gsap="popin"],
+    [data-gsap="left"],
+    [data-gsap="slideUp"]`);
+  const Duration = 600;
 
   AniTarget.forEach((el) => {
     const AniName = el.getAttribute("data-gsap");
+    const delay = Number(el.dataset.delay) || 0;
 
     gsap.set(el, { transformOrigin: "50% 50%" });
 
     if (AniName === "popin") {
-      gsapAni__popIn(el, Duration);
+      gsapAni__popIn(el, Duration, delay);
     } else if (AniName === "fade") {
-      gsapAni__fade(el, Duration);
+      gsapAni__fade(el, Duration, delay);
     } else if (AniName === "left") {
-      gsapAni__left(el, Duration);
+      gsapAni__left(el, Duration, delay);
+    } else if (AniName === "slideUp") {
+      gsapAni__slideUp(el, Duration, delay);
     }
   });
 };
 
-const gsapAni__popIn = (target, duration) => {
+const gsapAni__popIn = (target, duration, delay) => {
   const tl = gsap.timeline();
-  tl.from(target, { scale: 0, opacity: 0, duration: duration / 1000, ease: "none" });
-  gaspAni__ST(target, tl);
+  tl.from(target, { delay: delay / 1000 });
+  tl.from(target, { scale: 0.7, opacity: 0, duration: duration / 1000, ease: "none" });
+  gaspAni__creatST(target, tl, 1);
 };
 
-const gsapAni__fade = (target, duration) => {
+const gsapAni__slideUp = (target, duration, delay) => {
   const tl = gsap.timeline();
+  tl.from(target, { delay: delay / 1000 });
+  tl.from(target, { y: 100, opacity: 0, duration: duration / 1000, ease: "power1.out" });
+  gaspAni__creatST(target, tl, false);
+};
+
+const gsapAni__fade = (target, duration, delay) => {
+  const tl = gsap.timeline();
+  tl.from(target, { delay: delay / 1000 });
   tl.from(target, { opacity: 0, duration: duration / 1000, ease: "none" });
-  gaspAni__ST(target, tl);
+  gaspAni__creatST(target, tl, 1);
 };
 
-const gaspAni__ST = (targetEl, timeline) => {
+const gsapAni__left = (target, duration, delay) => {
+  const tl = gsap.timeline();
+  tl.from(target, { delay: delay / 1000 });
+  tl.from(target, { opacity: 0, x: "-50%", duration: duration / 1000, ease: "none" });
+  gaspAni__creatST(target, tl, 1);
+};
+
+const gaspAni__creatST = (targetEl, timeline, scrub) => {
   const st = ScrollTrigger.create({
     trigger: targetEl,
     animation: timeline,
-    scrub: 1,
+    scrub: scrub,
     start: "top bottom",
-    end: "bottom +=80%",
+    end: "bottom +=75%",
+    toggleActions: "play none none reverse",
   });
-};
-
-const gsapAni__left = (target, duration) => {
-  const tl = gsap.timeline();
-  tl.from(target, { opacity: 0, x: "-50%", duration: duration / 1000, ease: "none" });
-  gaspAni__ST(target, tl);
 };
 
 function secSolutionGsap() {
   const target = document.querySelector(".sec-solution");
   const svgBox = target.querySelector(".svg-box");
   const text = target.querySelectorAll("p");
+  const mouse = document.querySelector(".mouse");
 
   const tl = gsap.timeline({ defaults: { ease: "none" } });
 
@@ -224,14 +243,68 @@ function secSolutionGsap() {
     pin: true,
     scrub: 1,
     animation: tl,
-    end: "+=150%",
+    start: "top top",
+    end: "+=200% top",
 
-    onLeave: () => AOS.refresh(),
+    onEnter: () => mouse.classList.add("invert"),
+    onEnterBack: () => mouse.classList.add("invert"),
+    onLeave: () => {
+      AOS.refresh();
+      mouse.classList.remove("invert");
+    },
+    onLeaveBack: () => mouse.classList.remove("invert"),
   });
 }
+function gsapSticky(elements) {
+  const pinTarget = document.querySelector(elements);
+  const pinContainer = pinTarget.parentElement;
+
+  const st = ScrollTrigger.create({
+    trigger: pinContainer,
+    pin: pinTarget,
+    scrub: 0,
+    pinSpacing: false,
+    start: "top top",
+    end: `bottom top+=${pinTarget.offsetHeight}`,
+  });
+}
+
+function hoverAni() {
+  const targetAll = document.querySelectorAll(`[data-hover="up"]`);
+  targetAll.forEach((el) => {
+    el.addEventListener("pointerenter", () => {
+      gsap.to(el, { y: -10, duration: 0.3, ease: "power1.out" });
+    });
+    el.addEventListener("pointerleave", () => {
+      gsap.to(el, { y: 10, duration: 0.3, ease: "power1.out" });
+    });
+  });
+}
+
+const mouseAni = () => {
+  const mouseEl = document.querySelector(".mouse");
+
+  window.addEventListener("mousemove", (e) => {
+    mouseEl.style.transform = `translate(calc(${e.clientX}px - 50%), calc(${e.clientY}px - 50%))`;
+  });
+
+  const sec5_mouseColorChange = ScrollTrigger.create({
+    trigger: ".sec-5",
+    start: "top center",
+    end: "bottom center",
+
+    onEnter: () => mouseEl.classList.add("invert"),
+    onEnterBack: () => mouseEl.classList.add("invert"),
+    onLeave: () => mouseEl.classList.remove("invert"),
+    onLeaveBack: () => mouseEl.classList.remove("invert"),
+  });
+};
 
 document.addEventListener("DOMContentLoaded", () => {
   gsapAni__init();
   main_loading__init();
   secSolutionGsap();
+  gsapSticky(".sec-info-arch .grid-box.table");
+  hoverAni();
+  mouseAni();
 });
