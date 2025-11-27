@@ -187,7 +187,7 @@ const gsapAni__init = () => {
 const gsapAni__popIn = (target, duration, delay) => {
   const tl = gsap.timeline();
   tl.from(target, { delay: delay / 1000 });
-  tl.from(target, { scale: 0.7, opacity: 0, duration: duration / 1000, ease: "none" });
+  tl.from(target, { scale: 0.75, opacity: 0, duration: duration / 1000, ease: "none" });
   gaspAni__creatST(target, tl, 1);
 };
 
@@ -208,7 +208,7 @@ const gsapAni__fade = (target, duration, delay) => {
 const gsapAni__left = (target, duration, delay) => {
   const tl = gsap.timeline();
   tl.from(target, { delay: delay / 1000 });
-  tl.from(target, { opacity: 0, x: "-50%", duration: duration / 1000, ease: "none" });
+  tl.from(target, { opacity: 0, x: "-25%", duration: duration / 1000, ease: "none" });
   gaspAni__creatST(target, tl, 1);
 };
 

@@ -770,7 +770,7 @@ section.sec-1 {
     gap: 1.2rem;
     margin-top: 5rem;
 
-    font-size: 1.6rem;
+    font-size: 1.8rem;
 
     .box {
       box-sizing: border-box;
@@ -829,6 +829,12 @@ section.sec-1 {
       text-align: center;
 
       font-size: 2.8rem;
+
+      transition: all 0.3s;
+
+      &:hover {
+        background-color: #333;
+      }
     }
   }
 }
