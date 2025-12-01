@@ -276,7 +276,7 @@ function hoverAni() {
       gsap.to(el, { y: -10, duration: 0.3, ease: "power1.out" });
     });
     el.addEventListener("pointerleave", () => {
-      gsap.to(el, { y: 10, duration: 0.3, ease: "power1.out" });
+      gsap.to(el, { y: 0, duration: 0.3, ease: "power1.out" });
     });
   });
 }
